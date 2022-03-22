@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UGCGame/src/ui/Screens/Start.gd" type="Script" id=1]
+[ext_resource path="res://UGCGame/src/ui/Menu/Lbl/Lbl.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UGCGame/assets/fonts/Ignotum.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 40
+extra_spacing_char = 2
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+resource_local_to_scene = true
+size = 32
+extra_spacing_char = 2
+font_data = ExtResource( 3 )
+
+[node name="Start" type="Node"]
+script = ExtResource( 1 )
+
+[node name="question" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 336.0
+margin_bottom = 429.0
+custom_fonts/font = SubResource( 1 )
+text = "What would life be 
+without color...?"
+
+[node name="made_by" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 352.0
+margin_bottom = 422.0
+custom_fonts/font = SubResource( 2 )
+text = "A game by johnnyneverwalked"

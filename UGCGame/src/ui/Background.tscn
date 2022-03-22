@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UGCGame/src/ui/Background.gd" type="Script" id=1]
+[ext_resource path="res://UGCGame/assets/sprites/circle.png" type="Texture" id=2]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+background_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 10.0
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.9
+glow_blend_mode = 1
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.51462, 1 )
+colors = PoolColorArray( 0, 0.601563, 1, 1, 1, 1, 1, 0, 0.882813, 0.282776, 0.282776, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.493421, 1 ), -2.38419e-07, -2.38419e-07, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 960, 540, 0 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 5.0
+radial_accel_random = 1.0
+tangential_accel = 2.0
+tangential_accel_random = 1.0
+scale_random = 1.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+hue_variation = 0.2
+hue_variation_random = 1.0
+
+[node name="Background" type="WorldEnvironment"]
+environment = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CenterContainer"]
+margin_left = 960.0
+margin_top = 540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="particles" type="Particles2D" parent="CenterContainer/Control"]
+modulate = Color( 1.1, 1.1, 1.1, 1 )
+amount = 100
+lifetime = 5.0
+randomness = 1.0
+visibility_rect = Rect2( -960, -540, 1920, 1080 )
+process_material = SubResource( 6 )
+texture = ExtResource( 2 )

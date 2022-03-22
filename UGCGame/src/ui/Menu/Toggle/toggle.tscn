@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UGCGame/src/ui/Menu/Toggle/toggle.gd" type="Script" id=1]
+[ext_resource path="res://UGCGame/assets/UI/toggle-off-solid.png" type="Texture" id=2]
+[ext_resource path="res://UGCGame/assets/UI/toggle-on-solid.png" type="Texture" id=3]
+
+[node name="toggle" type="CheckButton"]
+margin_right = 156.0
+margin_bottom = 152.0
+focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 5
+custom_icons/off = ExtResource( 2 )
+custom_icons/on_disabled = ExtResource( 3 )
+custom_icons/on = ExtResource( 3 )
+custom_icons/off_disabled = ExtResource( 2 )
+pressed = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

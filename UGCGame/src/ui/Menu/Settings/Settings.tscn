@@ -1,0 +1,288 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://UGCGame/src/ui/Menu/Lbl/Lbl.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UGCGame/src/ui/Menu/Settings/Settings.gd" type="Script" id=2]
+[ext_resource path="res://UGCGame/src/ui/Btn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UGCGame/assets/UI/chevron-left-solid.png" type="Texture" id=4]
+[ext_resource path="res://UGCGame/assets/UI/chevron-right-solid.png" type="Texture" id=5]
+[ext_resource path="res://UGCGame/assets/fonts/Ignotum.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://UGCGame/src/ui/Menu/Toggle/toggle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UGCGame/src/ui/Menu/Menu_btn/Menu_btn.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UGCGame/src/ui/Menu/Color_table/Color_table.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.164706, 0.568627, 0.690196, 0.784314 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.164706, 0.709804, 0.639216, 0.784314 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+
+[sub_resource type="DynamicFont" id=4]
+resource_local_to_scene = true
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+resource_local_to_scene = true
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+resource_local_to_scene = true
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
+resource_local_to_scene = true
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=9]
+resource_local_to_scene = true
+size = 40
+font_data = ExtResource( 6 )
+
+[node name="Settings" type="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -32.0
+custom_constants/separation = 64
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" parent="." instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 31.0
+margin_bottom = 31.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 4 )
+animate = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_top = 95.0
+margin_right = 384.0
+margin_bottom = 457.0
+size_flags_vertical = 4
+custom_constants/vseparation = 8
+columns = 2
+
+[node name="Music" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_right = 190.0
+margin_bottom = 45.0
+size_flags_horizontal = 11
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+text = "Music"
+align = 0
+
+[node name="bgm_vol" type="HSlider" parent="GridContainer"]
+margin_left = 194.0
+margin_top = 14.0
+margin_right = 384.0
+margin_bottom = 30.0
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_styles/grabber_area_highlight = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+step = 10.0
+value = 100.0
+
+[node name="Sound" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_top = 53.0
+margin_right = 190.0
+margin_bottom = 98.0
+size_flags_horizontal = 11
+custom_fonts/font = SubResource( 4 )
+text = "Sound"
+align = 0
+
+[node name="sfx_vol" type="HSlider" parent="GridContainer"]
+margin_left = 194.0
+margin_top = 67.0
+margin_right = 384.0
+margin_bottom = 83.0
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_styles/grabber_area_highlight = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+step = 10.0
+value = 100.0
+
+[node name="Particles" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_top = 123.0
+margin_right = 190.0
+margin_bottom = 168.0
+size_flags_horizontal = 11
+custom_fonts/font = SubResource( 5 )
+text = "Particles"
+align = 0
+
+[node name="Particles_toggle" parent="GridContainer" instance=ExtResource( 7 )]
+margin_left = 247.0
+margin_top = 106.0
+margin_right = 331.0
+margin_bottom = 186.0
+size_flags_vertical = 4
+
+[node name="Palette" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_top = 194.0
+margin_right = 190.0
+margin_bottom = 239.0
+size_flags_horizontal = 11
+custom_fonts/font = SubResource( 5 )
+text = "Palette"
+align = 0
+
+[node name="Palette_options" type="HBoxContainer" parent="GridContainer"]
+margin_left = 194.0
+margin_top = 194.0
+margin_right = 384.0
+margin_bottom = 239.0
+
+[node name="prev_palette" parent="GridContainer/Palette_options" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 7.0
+margin_right = 31.0
+margin_bottom = 38.0
+size_flags_vertical = 4
+texture_normal = ExtResource( 4 )
+animate = true
+
+[node name="Lbl" parent="GridContainer/Palette_options" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_left = 35.0
+margin_top = 4.0
+margin_right = 155.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "melody"
+
+[node name="next_palette" parent="GridContainer/Palette_options" instance=ExtResource( 3 )]
+margin_left = 159.0
+margin_top = 7.0
+margin_right = 190.0
+margin_bottom = 38.0
+size_flags_vertical = 4
+texture_normal = ExtResource( 5 )
+animate = true
+
+[node name="Colorblind" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_top = 269.0
+margin_right = 190.0
+margin_bottom = 305.0
+size_flags_horizontal = 11
+custom_fonts/font = SubResource( 7 )
+text = "Colorblind mode"
+align = 0
+
+[node name="Colorblind_toggle" parent="GridContainer" instance=ExtResource( 7 )]
+margin_left = 247.0
+margin_top = 247.0
+margin_right = 331.0
+margin_bottom = 327.0
+pressed = false
+
+[node name="Erase_data" parent="GridContainer" instance=ExtResource( 8 )]
+margin_top = 335.0
+margin_right = 126.0
+margin_bottom = 362.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+custom_fonts/font = SubResource( 8 )
+text = "Erase Progress"
+
+[node name="Color_table" parent="." instance=ExtResource( 9 )]
+margin_left = 37.0
+margin_top = 521.0
+margin_right = 347.0
+margin_bottom = 661.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Erase_dialog" type="VBoxContainer" parent="."]
+visible = false
+margin_right = 384.0
+margin_bottom = 704.0
+size_flags_vertical = 3
+custom_constants/separation = 64
+alignment = 1
+
+[node name="Lbl" parent="Erase_dialog" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_top = 270.0
+margin_right = 384.0
+margin_bottom = 315.0
+custom_fonts/font = SubResource( 9 )
+text = "Are you sure?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Erase_dialog"]
+margin_left = 117.0
+margin_top = 379.0
+margin_right = 266.0
+margin_bottom = 433.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 64
+
+[node name="Yes" parent="Erase_dialog/HBoxContainer" instance=ExtResource( 8 )]
+margin_right = 51.0
+text = "YES"
+type = "yes"
+
+[node name="No" parent="Erase_dialog/HBoxContainer" instance=ExtResource( 8 )]
+margin_left = 115.0
+margin_right = 149.0
+text = "NO"
+type = "no"
+
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="value_changed" from="GridContainer/bgm_vol" to="." method="_on_bgm_vol_value_changed"]
+[connection signal="value_changed" from="GridContainer/sfx_vol" to="." method="_on_sfx_vol_value_changed"]
+[connection signal="toggled" from="GridContainer/Particles_toggle" to="." method="_on_Particles_toggled"]
+[connection signal="pressed" from="GridContainer/Palette_options/prev_palette" to="." method="_on_prev_palette_pressed"]
+[connection signal="pressed" from="GridContainer/Palette_options/next_palette" to="." method="_on_next_palette_pressed"]
+[connection signal="toggled" from="GridContainer/Colorblind_toggle" to="." method="_on_Colorblind_toggled"]
+[connection signal="pressed" from="GridContainer/Erase_data" to="." method="_on_Erase_data_pressed"]
+[connection signal="pressed_type" from="Erase_dialog/HBoxContainer/Yes" to="." method="_on_erase_answer"]
+[connection signal="pressed_type" from="Erase_dialog/HBoxContainer/No" to="." method="_on_erase_answer"]

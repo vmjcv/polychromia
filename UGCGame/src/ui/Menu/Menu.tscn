@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UGCGame/src/ui/Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://UGCGame/src/ui/Flower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UGCGame/src/ui/Menu/Lbl/Lbl.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UGCGame/src/ui/Menu/Menu_btn/Menu_btn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UGCGame/assets/fonts/Ignotum.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 72
+extra_spacing_char = 2
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+resource_local_to_scene = true
+size = 24
+extra_spacing_char = 2
+font_data = ExtResource( 5 )
+
+[node name="Menu" type="Node"]
+script = ExtResource( 1 )
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Lbl" parent="UI" instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 96.0
+margin_bottom = 175.0
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 1 )
+text = "POLYCHROMIA"
+
+[node name="FLOWER" parent="UI" instance=ExtResource( 2 )]
+position = Vector2( 7.62939e-06, 3.05176e-05 )
+scale = Vector2( 1e-05, 1e-05 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 650.0
+margin_top = 256.0
+margin_right = -650.0
+margin_bottom = -192.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="START" parent="UI/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 196.0
+margin_right = 620.0
+margin_bottom = 250.0
+text = "START"
+type = "start"
+
+[node name="INSTRUCTIONS" parent="UI/VBoxContainer" instance=ExtResource( 4 )]
+visible = false
+margin_top = 168.0
+margin_bottom = 222.0
+text = "HOW TO PLAY"
+
+[node name="SETTINGS" parent="UI/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 258.0
+margin_right = 620.0
+margin_bottom = 312.0
+text = "SETTINGS"
+type = "settings"
+
+[node name="CREDITS" parent="UI/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 320.0
+margin_right = 620.0
+margin_bottom = 374.0
+text = "CREDITS"
+type = "credits"
+
+[node name="EXIT" parent="UI/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 382.0
+margin_right = 620.0
+margin_bottom = 436.0
+text = "EXIT"
+type = "exit"
+
+[node name="Subtitle" parent="UI" instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -192.0
+margin_bottom = 0.0
+custom_fonts/font = SubResource( 2 )
+text = "A game by JohnnyNeverWalked"
+valign = 0
+
+[connection signal="hover_position" from="UI/VBoxContainer/START" to="." method="_on_Btn_hover_position"]
+[connection signal="pressed_type" from="UI/VBoxContainer/START" to="." method="_on_Btn_pressed_type"]
+[connection signal="hover_position" from="UI/VBoxContainer/INSTRUCTIONS" to="." method="_on_Btn_hover_position"]
+[connection signal="pressed_type" from="UI/VBoxContainer/INSTRUCTIONS" to="." method="_on_Btn_pressed_type"]
+[connection signal="hover_position" from="UI/VBoxContainer/SETTINGS" to="." method="_on_Btn_hover_position"]
+[connection signal="pressed_type" from="UI/VBoxContainer/SETTINGS" to="." method="_on_Btn_pressed_type"]
+[connection signal="hover_position" from="UI/VBoxContainer/CREDITS" to="." method="_on_Btn_hover_position"]
+[connection signal="pressed_type" from="UI/VBoxContainer/CREDITS" to="." method="_on_Btn_pressed_type"]
+[connection signal="hover_position" from="UI/VBoxContainer/EXIT" to="." method="_on_Btn_hover_position"]

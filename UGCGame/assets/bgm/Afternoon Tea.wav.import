@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Afternoon Tea.wav-88bd8a7190e3c85abc4c1b92e0e73583.sample"
+
+[deps]
+
+source_file="res://assets/bgm/Afternoon Tea.wav"
+dest_files=[ "res://.import/Afternoon Tea.wav-88bd8a7190e3c85abc4c1b92e0e73583.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=true
+compress/mode=1

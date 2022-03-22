@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UGCGame/assets/sprites/circle.png" type="Texture" id=1]
+[ext_resource path="res://UGCGame/src/ui/Menu/Palette_color/Palette_color.gd" type="Script" id=2]
+[ext_resource path="res://UGCGame/assets/fonts/Roboto-Black.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 3 )
+
+[node name="Palette_color" type="TextureRect"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_scale = Vector2( 0.5, 0.5 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 1 )
+stretch_mode = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colorblind" type="Label" parent="."]
+visible = false
+margin_right = 32.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "R"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

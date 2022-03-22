@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UGCGame/assets/UI/chevron-left-solid.png" type="Texture" id=1]
+[ext_resource path="res://UGCGame/src/ui/Btn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UGCGame/src/ui/Level_selection/Level_selection.gd" type="Script" id=3]
+[ext_resource path="res://UGCGame/src/ui/Menu/Lbl/Lbl.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UGCGame/assets/fonts/Ignotum.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 40
+font_data = ExtResource( 6 )
+
+[node name="Level_selection" type="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -32.0
+size_flags_vertical = 4
+custom_constants/separation = 64
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back_btn" parent="." instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 31.0
+margin_bottom = 31.0
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 20.0
+texture_normal = ExtResource( 1 )
+animate = true
+
+[node name="Lbl" parent="." instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 95.0
+margin_right = 1856.0
+margin_bottom = 140.0
+custom_fonts/font = SubResource( 1 )
+text = "SELECT A LEVEL"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = 204.0
+margin_right = 1856.0
+margin_bottom = 204.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_left = 928.0
+margin_right = 928.0
+size_flags_horizontal = 5
+columns = 3
+
+[connection signal="pressed" from="Back_btn" to="." method="_on_Back_btn_pressed"]
