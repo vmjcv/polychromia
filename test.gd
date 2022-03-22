@@ -16,6 +16,9 @@ func _ready():
 		main_script.init_autoload()
 	UGC.inputmap.load_input()
 
+	if main_script.has_method("init_audio"):
+		main_script.init_audio()
+
 	if main_script.has_method("init_custom"):
 		main_script.init_custom()
 	
