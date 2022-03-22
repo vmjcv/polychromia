@@ -8,7 +8,7 @@
 # So, this utility class helps the animations to figure out which
 # property to animate :)
 #
-class_name AnimaNodesProperties
+#class_name AnimaNodesProperties
 
 static func get_position(node: Node) -> Vector2:
 	if node is Control:

@@ -1,10 +1,10 @@
-func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
+func generate_animation(anima_tween, data: Dictionary) -> void:
 	var opacity_frames = [
 		{ percentage = 0, from = 1 },
 		{ percentage = 100, to = 0 },
 	]
 
-	var size = AnimaNodesProperties.get_size(data.node)
+	var size = UGC.classname.get_classname("AnimaNodesProperties").get_size(data.node)
 	var x_frames = [
 		{ percentage = 0, from = 0 },
 		{ percentage = 100, to = -size.x },

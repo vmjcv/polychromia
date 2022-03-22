@@ -1,4 +1,4 @@
-func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
+func generate_animation(anima_tween, data: Dictionary) -> void:
 	var start_x = data.node.get_global_transform().y.x
 	var start_y = data.node.get_global_transform().x.y
 
@@ -22,7 +22,7 @@ func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
 		skew_x.push_back({ percentage = value.percentage, to = start_x + value.add })
 		skew_y.push_back({ percentage = value.percentage, to = start_y + value.add })
 
-	AnimaNodesProperties.set_2D_pivot(data.node, UGC.autoload.get_autoload("Anima").PIVOT.CENTER)
+	UGC.classname.get_classname("AnimaNodesProperties").set_2D_pivot(data.node, UGC.autoload.get_autoload("Anima").PIVOT.CENTER)
 
 	# Skew works only with Node2D
 	if not data.node is Node2D:

@@ -1,5 +1,5 @@
-func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
-	var size = AnimaNodesProperties.get_size(data.node)
+func generate_animation(anima_tween, data: Dictionary) -> void:
+	var size = UGC.classname.get_classname("AnimaNodesProperties").get_size(data.node)
 
 	var position_frames = [
 		{ percentage = 0, from = 0 },

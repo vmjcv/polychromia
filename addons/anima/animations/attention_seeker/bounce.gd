@@ -1,4 +1,4 @@
-func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
+func generate_animation(anima_tween, data: Dictionary) -> void:
 	var delay: float = data._wait_time
 	var bounce_frames = [
 		{ percentage = 0, to = 0 },

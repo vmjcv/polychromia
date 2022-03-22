@@ -1,4 +1,4 @@
-class_name AnimaStrings
+#class_name AnimaStrings
 
 static func from_camel_to_snack_case(string:String) -> String:
 	var result = PoolStringArray()

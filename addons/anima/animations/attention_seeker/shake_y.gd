@@ -1,4 +1,4 @@
-func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
+func generate_animation(anima_tween, data: Dictionary) -> void:
 	var frames = [
 		{ percentage = 0, to = 0 },
 		{ percentage = 10, to = -10 },

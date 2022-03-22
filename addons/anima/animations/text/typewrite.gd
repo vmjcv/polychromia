@@ -1,4 +1,4 @@
-func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> float:
+func generate_animation(anima_tween, data: Dictionary) -> float:
 	var node = data.node
 	var duration_per_char = data.duration
 

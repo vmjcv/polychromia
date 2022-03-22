@@ -2,7 +2,7 @@
 # Easing functions and code has been inspired from:
 # https://easings.net/
 #
-class_name AnimaEasing
+#class_name AnimaEasing
 
 enum EASING {
 	LINEAR,   

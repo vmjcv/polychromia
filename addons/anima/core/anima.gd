@@ -43,7 +43,7 @@ enum TYPE {
 	GRID
 }
 
-const EASING = AnimaEasing.EASING
+var EASING = UGC.classname.get_classname("AnimaEasing").EASING
 
 const DEFAULT_DURATION := 0.7
 const DEFAULT_ITEMS_DELAY := 0.05
@@ -51,20 +51,19 @@ const DEFAULT_ITEMS_DELAY := 0.05
 var _animations_list := []
 var _custom_animations := []
 
-func begin(node, name: String = 'anima') -> AnimaNode:
+func begin(node, name: String = 'anima'):
 	var node_name = 'AnimaNode_' + name
-	var anima_node: AnimaNode
+	var anima_node
 
 	for child in node.get_children():
 		if child.name.find(node_name) >= 0:
 			anima_node = child
 			anima_node.clear()
 			anima_node.stop()
-
 			return anima_node
 
 	if anima_node == null:
-		anima_node = AnimaNode.new()
+		anima_node = UGC.classname.get_classname("AnimaNode").new()
 		anima_node.name = node_name
 
 		anima_node._init_node(node)
@@ -114,7 +113,7 @@ func get_animation_script_with_path(animation_name: String) -> String:
 	if not animation_name.ends_with('.gd'):
 		animation_name += '.gd'
 
-	animation_name = AnimaStrings.from_camel_to_snack_case(animation_name)
+	animation_name = UGC.classname.get_classname("AnimaStrings").from_camel_to_snack_case(animation_name)
 
 	for file_name in get_available_animations():
 		if file_name is String and file_name.ends_with(animation_name):

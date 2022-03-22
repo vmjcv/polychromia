@@ -1,4 +1,4 @@
-func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
+func generate_animation(anima_tween, data: Dictionary) -> void:
 	var position_frames = [
 		{ percentage = 0, from = 0, ease = UGC.autoload.get_autoload("Anima").EASING.EASE_IN_OUT },
 		{ percentage = 80, to = 0, ease = UGC.autoload.get_autoload("Anima").EASING.EASE_IN_OUT },
@@ -20,7 +20,7 @@ func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
 		{ percentage = 100, to = 0 },
 	]
 
-	AnimaNodesProperties.set_2D_pivot(data.node, UGC.autoload.get_autoload("Anima").PIVOT.TOP_LEFT)
+	UGC.classname.get_classname("AnimaNodesProperties").set_2D_pivot(data.node, UGC.autoload.get_autoload("Anima").PIVOT.TOP_LEFT)
 
 	anima_tween.add_frames(data, "opacity", opacity_frames)
 	anima_tween.add_frames(data, "rotation", rotate_frames)

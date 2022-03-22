@@ -1,4 +1,4 @@
-func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
+func generate_animation(anima_tween, data: Dictionary) -> void:
 	var rotate_frames = [
 		{ percentage = 0, from = 0 },
 	]
@@ -13,7 +13,7 @@ func generate_animation(anima_tween: AnimaTween, data: Dictionary) -> void:
 		rotate_frames.push_back({ percentage = percent, to = 3 * s })
 		scale_frames.push_back({ percentage = percent, to = Vector2(1.1, 1.1) })
 
-	AnimaNodesProperties.set_2D_pivot(data.node, UGC.autoload.get_autoload("Anima").PIVOT.CENTER)
+	UGC.classname.get_classname("AnimaNodesProperties").set_2D_pivot(data.node, UGC.autoload.get_autoload("Anima").PIVOT.CENTER)
 
 	rotate_frames.push_back({percentage = 100, to = 0})
 	scale_frames.push_back({percentage = 100, to = Vector2(1, 1)})

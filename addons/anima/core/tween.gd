@@ -1,4 +1,4 @@
-class_name AnimaTween
+#class_name AnimaTween
 extends Tween
 
 var _animation_data := []
@@ -34,7 +34,7 @@ func play():
 			if animation_data.easing is FuncRef:
 				easing_points = animation_data.easing
 			else:
-				easing_points = AnimaEasing.get_easing_points(animation_data.easing)
+				easing_points = UGC.classname.get_classname("AnimaEasing").get_easing_points(animation_data.easing)
 
 		if animation_data.has('easing_points'):
 			easing_points = animation_data.easing_points
@@ -227,7 +227,7 @@ func _flip_animations(data: Array, animation_length) -> Array:
 		var is_relative = animation_data.has('relative') and animation_data.relative
 
 		if not animation_data.has('from'):
-			var node_from = AnimaNodesProperties.get_property_initial_value(node, property)
+			var node_from = UGC.classname.get_classname("AnimaNodesProperties").get_property_initial_value(node, property)
 
 			if previous_frames.has(node) and previous_frames[node].has(property):
 				node_from = previous_frames[node][property]
@@ -310,7 +310,7 @@ func _on_tween_step_with_easing_callback(object: Object, key: NodePath, _time: f
 		return
 
 	var easing_points_function = _animation_data[index]._easing_points
-	var easing_callback = funcref(AnimaEasing, easing_points_function)
+	var easing_callback = funcref(UGC.classname.get_classname("AnimaEasing"), easing_points_function)
 	var easing_elapsed = easing_callback.call_func(elapsed)
 
 	_animation_data[index]._animation_callback.call_func(index, easing_elapsed)
@@ -376,7 +376,7 @@ func _do_calculate_from_to(node: Node, animation_data: Dictionary) -> void:
 	var from
 	var to
 	var relative = animation_data.relative if animation_data.has('relative') else false
-	var node_from = AnimaNodesProperties.get_property_initial_value(node, animation_data.property)
+	var node_from = UGC.classname.get_classname("AnimaNodesProperties").get_property_initial_value(node, animation_data.property)
 
 	if animation_data.has('from'):
 		from = _maybe_convert_from_deg_to_rad(node, animation_data, animation_data.from)
@@ -396,9 +396,9 @@ func _do_calculate_from_to(node: Node, animation_data: Dictionary) -> void:
 		if node is Spatial:
 			printerr('3D Pivot not supported yet')
 		else:
-			AnimaNodesProperties.set_2D_pivot(animation_data.node, animation_data.pivot)
+			UGC.classname.get_classname("AnimaNodesProperties").set_2D_pivot(animation_data.node, animation_data.pivot)
 
-	animation_data._property_data = AnimaNodesProperties.map_property_to_godot_property(node, animation_data.property)
+	animation_data._property_data = UGC.classname.get_classname("AnimaNodesProperties").map_property_to_godot_property(node, animation_data.property)
 
 	animation_data._property_data.diff = to - from
 	animation_data._property_data.from = from

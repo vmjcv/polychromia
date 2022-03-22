@@ -1,4 +1,4 @@
-class_name AnimaNode
+#class_name AnimaNode
 extends Node
 
 signal animation_started
@@ -6,7 +6,7 @@ signal animation_completed
 signal loop_started
 signal loop_completed
 
-var _anima_tween := AnimaTween.new()
+var _anima_tween = UGC.classname.get_classname("AnimaTween").new()
 
 var _total_animation := 0.0
 var _last_animation_duration := 0.0
@@ -16,7 +16,7 @@ var _loop_times := 0
 var _loop_count := 0
 var _should_loop := false
 var _loop_strategy = UGC.autoload.get_autoload("Anima").LOOP.USE_EXISTING_RELATIVE_DATA
-var _play_mode: int = AnimaTween.PLAY_MODE.NORMAL
+var _play_mode: int = UGC.classname.get_classname("AnimaTween").PLAY_MODE.NORMAL
 
 var __do_nothing := 0.0
 
@@ -93,16 +93,16 @@ func clear() -> void:
 	set_visibility_strategy(UGC.autoload.get_autoload("Anima").VISIBILITY.IGNORE)
 
 func play() -> void:
-	_play(AnimaTween.PLAY_MODE.NORMAL)
+	_play(UGC.classname.get_classname("AnimaTween").PLAY_MODE.NORMAL)
 
 func play_with_delay(delay: float) -> void:
-	_play(AnimaTween.PLAY_MODE.NORMAL, delay)
+	_play(UGC.classname.get_classname("AnimaTween").PLAY_MODE.NORMAL, delay)
 
 func play_backwards() -> void:
-	_play(AnimaTween.PLAY_MODE.BACKWARDS)
+	_play(UGC.classname.get_classname("AnimaTween").PLAY_MODE.BACKWARDS)
 
 func play_backwards_with_delay(delay: float) -> void:
-	_play(AnimaTween.PLAY_MODE.BACKWARDS, delay)
+	_play(UGC.classname.get_classname("AnimaTween").PLAY_MODE.BACKWARDS, delay)
 
 func _play(mode: int, delay: float = 0) -> void:
 	_loop_times = 1
@@ -117,19 +117,19 @@ func stop() -> void:
 	_anima_tween.stop_all()
 
 func loop(times: int = -1) -> void:
-	_do_loop(times, AnimaTween.PLAY_MODE.NORMAL)
+	_do_loop(times, UGC.classname.get_classname("AnimaTween").PLAY_MODE.NORMAL)
 
 func loop_backwards(times: int = -1) -> void:
-	_do_loop(times, AnimaTween.PLAY_MODE.BACKWARDS)
+	_do_loop(times, UGC.classname.get_classname("AnimaTween").PLAY_MODE.BACKWARDS)
 
 func loop_backwards_with_delay(delay: float, times: int = -1) -> void:
-	_do_loop(times, AnimaTween.PLAY_MODE.NORMAL, delay)
+	_do_loop(times, UGC.classname.get_classname("AnimaTween").PLAY_MODE.NORMAL, delay)
 
 func loop_with_delay(delay: float, times: int = -1) -> void:
-	_do_loop(times, AnimaTween.PLAY_MODE.NORMAL, delay)
+	_do_loop(times, UGC.classname.get_classname("AnimaTween").PLAY_MODE.NORMAL, delay)
 
 func loop_times_with_delay(times: float, delay: float) -> void:
-	_do_loop(times, AnimaTween.PLAY_MODE.NORMAL, delay)
+	_do_loop(times, UGC.classname.get_classname("AnimaTween").PLAY_MODE.NORMAL, delay)
 
 func _do_loop(times: int, mode: int, delay: float = 0.00001) -> void:
 	_loop_times = times
