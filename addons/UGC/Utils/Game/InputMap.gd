@@ -2,7 +2,6 @@ tool
 extends Node
 
 func load_input():
-	print("load_input")
 	InputMap.load_from_globals()
 	var input_folder = ConfigFile.new()
 	input_folder.load(UGC.data_manger.data_constant.ugc_game_input_path)
